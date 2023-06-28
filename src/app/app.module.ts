@@ -4,10 +4,32 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideAuth, getAuth, connectAuthEmulator } from '@angular/fire/auth';
+import { provideFirestore, getFirestore, connectFirestoreEmulator, firestoreInstance$ } from '@angular/fire/firestore';
+import { NavbarComponent } from './shared/components/navbar/navbar.component';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    NavbarComponent,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideAuth(() => {
+      const auth = getAuth();
+      //connectAuthEmulator(auth, 'http://localhost:9099', {
+      //  disableWarnings: true,
+      //});
+      return auth;
+    }),
+    provideFirestore(() => {
+      const fireStore = getFirestore();
+      //connectFirestoreEmulator(fireStore, 'http://localhost', 9098)
+      return fireStore;
+    }),
+  ],
   providers: [provideHttpClient()],
   bootstrap: [AppComponent],
 })

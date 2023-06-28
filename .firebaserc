@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "angular-login-firebase-52a55": {
+      "hosting": {
+        "angular-boilerplate": [
+          "angular-login-firebase-52a55"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "angular-login-firebase-52a55"
+  }
+}

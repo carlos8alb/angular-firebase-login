@@ -111,6 +111,16 @@
               "src/**/*.html"
             ]
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "angular-boilerplate:build:production",
+            "firebaseProject": "angular-login-firebase-52a55",
+            "firebaseHostingSite": "angular-login-firebase-52a55"
+          }
         }
       }
     }
