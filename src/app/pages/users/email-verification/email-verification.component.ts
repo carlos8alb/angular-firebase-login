@@ -3,11 +3,13 @@ import { AuthService } from '../services/auth.service';
 import { User } from 'firebase/auth';
 import { map, take, tap } from 'rxjs/operators';
 import { Observable } from 'rxjs';
+import { CommonModule } from '@angular/common';
 
 @Component({
-    selector: 'app-email-verification',
-    templateUrl: './email-verification.component.html',
-    standalone: true
+  selector: 'app-email-verification',
+  templateUrl: './email-verification.component.html',
+  standalone: true,
+  imports: [CommonModule, EmailVerificationComponent],
 })
 export class EmailVerificationComponent {
   private readonly authService = inject(AuthService);
@@ -21,7 +23,7 @@ export class EmailVerificationComponent {
         map((authState: any): User => authState?.auth?.currentUser),
         tap(() => this.authService.signOut())
       )
-      .subscribe((currentUser: User) => this.currentUser = currentUser);
+      .subscribe((currentUser: User) => (this.currentUser = currentUser));
   }
 
   async onResendEmail(): Promise<void> {
