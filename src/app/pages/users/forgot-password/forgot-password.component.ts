@@ -1,10 +1,13 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
+import { FormControl, Validators, ReactiveFormsModule } from '@angular/forms';
 import { AuthService } from '../services/auth.service';
+import { NgClass, NgIf } from '@angular/common';
 
 @Component({
-  selector: 'app-forgot-password',
-  templateUrl: './forgot-password.component.html',
+    selector: 'app-forgot-password',
+    templateUrl: './forgot-password.component.html',
+    standalone: true,
+    imports: [ReactiveFormsModule, NgClass, NgIf]
 })
 export class ForgotPasswordComponent implements OnInit {
   private authService = inject(AuthService);

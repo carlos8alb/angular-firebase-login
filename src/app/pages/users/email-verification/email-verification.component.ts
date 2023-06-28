@@ -5,8 +5,9 @@ import { map, take, tap } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 
 @Component({
-  selector: 'app-email-verification',
-  templateUrl: './email-verification.component.html',
+    selector: 'app-email-verification',
+    templateUrl: './email-verification.component.html',
+    standalone: true
 })
 export class EmailVerificationComponent {
   private readonly authService = inject(AuthService);

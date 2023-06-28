@@ -6,12 +6,10 @@ import { EmailVerificationComponent } from './email-verification.component';
 
 
 @NgModule({
-  declarations: [
-    EmailVerificationComponent
-  ],
-  imports: [
-    CommonModule,
-    EmailVerificationRoutingModule
-  ]
+    imports: [
+        CommonModule,
+        EmailVerificationRoutingModule,
+        EmailVerificationComponent
+    ]
 })
 export class EmailVerificationModule { }

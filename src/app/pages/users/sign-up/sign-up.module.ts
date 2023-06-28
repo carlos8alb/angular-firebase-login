@@ -7,13 +7,11 @@ import { AuthFormComponent } from '@app/shared/auth-form/auth-form.component';
 
 
 @NgModule({
-  declarations: [
-    SignUpComponent,
-  ],
-  imports: [
-    CommonModule,
-    SignUpRoutingModule,
-    AuthFormComponent
-  ]
+    imports: [
+        CommonModule,
+        SignUpRoutingModule,
+        AuthFormComponent,
+        SignUpComponent
+    ]
 })
 export class SignUpModule { }
